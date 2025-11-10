@@ -1,0 +1,72 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Times New Roman', serif;
+  background-color: #fff;
+  color: #000;
+  scroll-behavior: smooth;
+}
+
+/* Section Layout */
+.section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 20px;
+  text-align: center;
+  border-bottom: 1px solid #000;
+}
+
+/* Intro Section */
+.intro h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+.intro p {
+  font-size: 1.2rem;
+  max-width: 600px;
+}
+
+/* Product Sections */
+.product h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.placeholder {
+  width: 300px;
+  height: 300px;
+  background-color: #f5f5f5;
+  border: 2px solid #000;
+  margin-bottom: 1rem;
+}
+
+/* Footer */
+.footer {
+  background-color: #000;
+  color: #fff;
+}
+
+#backToTop {
+  background: none;
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#backToTop:hover {
+  background-color: #fff;
+  color: #000;
+}

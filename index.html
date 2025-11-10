@@ -1,11 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <h1>Hellooo</h1>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Showcase</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <p>Nothing beats a jet2 holiday.</p>
+
+  <!-- Header / Intro Section -->
+  <section class="section intro">
+    <h1>Harmonic Collection</h1>
+    <p>Scroll to explore our curated selection of designs.</p>
+  </section>
+
+  <!-- Product Sections -->
+  <section class="section product">
+    <h2>Product One</h2>
+    <div class="placeholder"></div>
+    <p>Short description of Product One.</p>
+  </section>
+
+  <section class="section product">
+    <h2>Product Two</h2>
+    <div class="placeholder"></div>
+    <p>Short description of Product Two.</p>
+  </section>
+
+  <section class="section product">
+    <h2>Product Three</h2>
+    <div class="placeholder"></div>
+    <p>Short description of Product Three.</p>
+  </section>
+
+  <!-- Footer / Back to Top -->
+  <footer class="section footer">
+    <button id="backToTop">Back to Top ↑</button>
+  </footer>
+
+  <script>
+    // Smooth scroll back to top
+    document.getElementById('backToTop').addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+
 </body>
 </html>
