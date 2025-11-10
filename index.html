@@ -9,14 +9,24 @@
 </head>
 <body>
 
-  <!-- Intro Section -->
-  <section class="section intro">
-    <h1>SYSTEM of BEAUTY</h1>
-    <p>Scroll to explore ten designed objects and their meanings.</p>
-  </section>
+    <!-- Vertical Navigation -->
+    <nav class="vertical-nav">
+        <a href="#home">Home</a>
+        <a href="#objects">Objects</a>
+        <a href="#essays">Essays</a>
+        <a href="#about">About</a>
+    </nav>
+
+
+    <!-- Intro Section -->
+    <section class="section intro" id="home">
+        <h1>SYSTEM of BEAUTY</h1>
+        <p>Scroll to explore ten designed objects and their meanings.</p>
+    </section>
+
 
   <!-- Ten Object Sections -->
-  <section class="section product">
+  <section class="section product"  id="objects">
     <h2>Object 01</h2>
     <div class="placeholder"></div>
     <p>Description of Object 01.</p>
@@ -76,32 +86,42 @@
     <p>Description of Object 10.</p>
   </section>
 
+
   <!-- Two Long-Form Text Sections -->
-  <section class="section text">
+  <section class="section text"  id="essays">
     <h2>Essay One</h2>
     <p>
-      This is a space for long-form writing about the collection — its origins, themes, and questions about beauty, systems, and design.
+      Long form writing one.
     </p>
   </section>
 
   <section class="section text">
     <h2>Essay Two</h2>
     <p>
-      A concluding reflection that ties together the meanings behind each object and explores how they interact as a system of beauty.
+      Long form writing two.
     </p>
   </section>
 
-  <!-- Footer / Back to Top -->
-  <footer class="section footer">
-    <button id="backToTop">Back to Top ↑</button>
-  </footer>
 
-  <script>
-    // Smooth scroll back to top
-    document.getElementById('backToTop').addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  </script>
+        <!-- About Section -->
+    <section class="section text" id="about">
+        <h2>About</h2>
+        <p>
+        Insert description here.
+        </p>
+    </section>
+
+
+    <!-- Footer / Back to Top -->
+    <footer class="section footer">
+        <button id="backToTop">Back to Top ↑</button>
+    </footer>
+
+    <script>
+        document.getElementById('backToTop').addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
 
 </body>
 </html>

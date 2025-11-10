@@ -5,6 +5,32 @@
   box-sizing: border-box;
 }
 
+
+/* Vertical Navigation */
+.vertical-nav {
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* space between items */
+  z-index: 1000;
+}
+
+.vertical-nav a {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: #000;
+  letter-spacing: 1px;
+  transition: opacity 0.3s ease;
+}
+
+.vertical-nav a:hover {
+  opacity: 0.5;
+}
+
+
 html, body {
   font-family: 'Times New Roman', serif;
   background-color: #fff;
