@@ -38,6 +38,7 @@ html, body {
   scroll-behavior: smooth;
 }
 
+
 /* Section layout */
 .section {
   min-height: 100vh;
@@ -48,6 +49,7 @@ html, body {
   padding: 80px 20px;
   text-align: center;
 }
+
 
 /* Intro section */
 .intro h1 {
@@ -64,6 +66,7 @@ html, body {
   line-height: 1.5;
   font-family: 'Inter', sans-serif;
 }
+
 
 /* Product sections */
 .product h2 {
@@ -85,6 +88,23 @@ html, body {
   line-height: 1.5;
   font-family: 'Inter', sans-serif;
 }
+
+
+/* 3D Model Section */
+
+#model1 {
+  width: 80%;
+  max-width: 700px;
+  height: 500px;
+  margin-bottom: 1rem;
+}
+canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+
 
 /* Text sections (long-form) */
 .text {
