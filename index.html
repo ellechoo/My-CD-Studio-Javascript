@@ -1,195 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SYSTEM of BEAUTY</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Rethink+Sans:wght@500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Rethink+Sans:wght@500&display=swap" rel="stylesheet" />
+
+  <!-- Three.js setup -->
   <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
   <script type="importmap">
-      {
-          "imports": {
-              "three": "https://unpkg.com/three@0.156.0/build/three.module.js",
-              "three/addons/": "https://unpkg.com/three@0.156.0/examples/jsm/"
-          }
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.159.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.159.0/examples/jsm/"
       }
+    }
   </script>
 </head>
+
 <body>
+  <!-- Vertical Navigation -->
+  <nav class="vertical-nav">
+    <a href="#home">Home</a>
+    <a href="#object1">Objects</a>
+    <a href="#essays">Essays</a>
+    <a href="#about">About</a>
+  </nav>
 
-    <!-- Vertical Navigation -->
-    <nav class="vertical-nav">
-        <a href="#home">Home</a>
-        <a href="#object1">Objects</a>
-        <a href="#essays">Essays</a>
-        <a href="#about">About</a>
-    </nav>
-
-
-    <!-- Intro Section -->
-    <section class="section intro" id="home">
-        <h1>SYSTEM of BEAUTY</h1>
-        <p>Scroll to explore ten designed objects and their meanings.</p>
-    </section>
-
+  <!-- Intro Section -->
+  <section class="section intro" id="home">
+    <h1>SYSTEM of BEAUTY</h1>
+    <p>Scroll to explore ten designed objects and their meanings.</p>
+  </section>
 
   <!-- Ten Object Sections -->
   <section class="section product" id="object1">
     <h2>Object 01</h2>
     <div id="model1"></div>
     <p>Description of Object 01.</p>
-    </section>
+  </section>
 
   <section class="section product">
     <h2>Object 02</h2>
-    <div class="placeholder"></div>
+    <div id="model2"></div>
     <p>Description of Object 02.</p>
   </section>
 
   <section class="section product">
     <h2>Object 03</h2>
-    <div class="placeholder"></div>
+    <div id="model3"></div>
     <p>Description of Object 03.</p>
   </section>
 
   <section class="section product">
     <h2>Object 04</h2>
-    <div class="placeholder"></div>
+    <div id="model4"></div>
     <p>Description of Object 04.</p>
   </section>
 
   <section class="section product">
     <h2>Object 05</h2>
-    <div class="placeholder"></div>
+    <div id="model5"></div>
     <p>Description of Object 05.</p>
   </section>
 
   <section class="section product">
     <h2>Object 06</h2>
-    <div class="placeholder"></div>
+    <div id="model6"></div>
     <p>Description of Object 06.</p>
   </section>
 
   <section class="section product">
     <h2>Object 07</h2>
-    <div class="placeholder"></div>
+    <div id="model7"></div>
     <p>Description of Object 07.</p>
   </section>
 
   <section class="section product">
     <h2>Object 08</h2>
-    <div class="placeholder"></div>
+    <div id="model8"></div>
     <p>Description of Object 08.</p>
   </section>
 
   <section class="section product">
     <h2>Object 09</h2>
-    <div class="placeholder"></div>
+    <div id="model9"></div>
     <p>Description of Object 09.</p>
   </section>
 
   <section class="section product">
     <h2>Object 10</h2>
-    <div class="placeholder"></div>
+    <div id="model10"></div>
     <p>Description of Object 10.</p>
   </section>
 
-
-  <!-- Two Long-Form Text Sections -->
-  <section class="section text"  id="essays">
+  <!-- Long-form text sections -->
+  <section class="section text" id="essays">
     <h2>Essay One</h2>
-    <p>
-      Long form writing one.
-    </p>
+    <p>Long form writing one.</p>
   </section>
 
   <section class="section text">
     <h2>Essay Two</h2>
-    <p>
-      Long form writing two.
-    </p>
+    <p>Long form writing two.</p>
   </section>
 
+  <!-- About -->
+  <section class="section text" id="about">
+    <h2>About</h2>
+    <p>Insert description here.</p>
+  </section>
 
-        <!-- About Section -->
-    <section class="section text" id="about">
-        <h2>About</h2>
-        <p>
-        Insert description here.
-        </p>
-    </section>
+  <!-- Footer -->
+  <footer class="section footer">
+    <button id="backToTop">Back to Top ↑</button>
+  </footer>
 
+  <script>
+    document.getElementById('backToTop').addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
 
-    <!-- Footer / Back to Top -->
-    <footer class="section footer">
-        <button id="backToTop">Back to Top ↑</button>
-    </footer>
+  <!-- Three.js Scripts -->
+  <script type="module">
+    import * as THREE from "three";
+    import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 
-    <script>
-        document.getElementById('backToTop').addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    </script>
+    function createModel(containerId, modelPath, scale = 10) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
 
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+      const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      container.appendChild(renderer.domElement);
 
+      // Lighting
+      const light = new THREE.DirectionalLight(0xffffff, 1);
+      light.position.set(2, 2, 5);
+      scene.add(light);
+      scene.add(new THREE.AmbientLight(0xffffff, 0.6));
 
-<script type="module">
-  import * as THREE from 'https://unpkg.com/three@0.159.0/build/three.module.js';
-  import { GLTFLoader } from 'https://unpkg.com/three@0.159.0/examples/jsm/loaders/GLTFLoader.js';
+      // Load Model
+      const loader = new GLTFLoader();
+      loader.load(modelPath, (gltf) => {
+        const model = gltf.scene;
+        scene.add(model);
+        model.position.y = -0.5;
+        model.scale.set(scale, scale, scale);
+        camera.position.z = 2;
 
-  // Patch global reference so GLTFLoader can find THREE
-  window.THREE = THREE;
+        function animate() {
+          requestAnimationFrame(animate);
+          model.rotation.y += 0.005;
+          renderer.render(scene, camera);
+        }
+        animate();
+      });
 
-  // Scene setup
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(
-    75,
-    window.innerWidth / window.innerHeight,
-    0.1,
-    1000
-  );
-  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-  renderer.setSize(window.innerWidth, window.innerHeight);
-
-  const container = document.getElementById('model1');
-  container.appendChild(renderer.domElement);
-
-  // Lighting
-  const light = new THREE.DirectionalLight(0xffffff, 1);
-  light.position.set(2, 2, 5);
-  scene.add(light);
-
-  const ambient = new THREE.AmbientLight(0xffffff, 0.6);
-  scene.add(ambient);
-
-  // Load your model
-  const loader = new GLTFLoader();
-  loader.load('./models/maybelline_hydrating_foundation.glb', (gltf) => {
-    const model = gltf.scene;
-    scene.add(model);
-    model.position.y = -0.5;
-    model.scale.set(15.0, 15.0, 15.0);
-
-    function animate() {
-      requestAnimationFrame(animate);
-      model.rotation.y += 0.005;
-      renderer.render(scene, camera);
+      window.addEventListener("resize", () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      });
     }
-    animate();
-  });
 
-  camera.position.z = 2;
-
-  // Handle resize
-  window.addEventListener('resize', () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-  });
-</script>
-
-
-
+    // === Call models ===
+    createModel("model1", "./models/chanel_cushion_foundation.glb", 6);
+    createModel("model2", "./models/maybelline_hydrating_foundation.glb", 10);
+    createModel("model3", "./models/makeup_box.glb", 5);
+    createModel("model4", "./models/blush_on.glb", 5);
+    createModel("model5", "./models/eyeshadow.glb", 0);
+    createModel("model6", "./models/eyeliner.glb", 0);
+    createModel("model7", "./models/maybelline_mascara.glb", 10);
+    createModel("model8", "./models/lipstick.glb", 0.9);
+    createModel("model9", "./models/gloss.glb", 0);
+    createModel("model10", "./models/idk.glb", 0);
+  </script>
 </body>
 </html>
