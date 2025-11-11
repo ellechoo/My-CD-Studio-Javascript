@@ -165,11 +165,11 @@
 
   // Load your model
   const loader = new GLTFLoader();
-  loader.load('./models/CoolAmberis.glb', (gltf) => {
+  loader.load('./models/maybelline_hydrating_foundation.glb', (gltf) => {
     const model = gltf.scene;
     scene.add(model);
     model.position.y = -0.5;
-    model.scale.set(1.2, 1.2, 1.2);
+    model.scale.set(15.0, 15.0, 15.0);
 
     function animate() {
       requestAnimationFrame(animate);
