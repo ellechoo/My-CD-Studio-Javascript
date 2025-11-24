@@ -10,11 +10,12 @@
 .vertical-nav {
   position: fixed;
   top: 30px;
-  left: 30px;
+  right: 30px;
   display: flex;
   flex-direction: column;
   gap: 20px; /* space between items */
   z-index: 1000;
+  text-align: right;
 }
 
 .vertical-nav a {
@@ -44,16 +45,22 @@ html, body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 80px 20px;
-  text-align: center;
+  padding: 5vh 5vh 5vh 5vh; /* top, right, bottom, left */
+  text-align: left;
 }
 
 
 /* Intro section */
 .intro h1 {
-  font-size: 10rem;
+  font-size: 6rem;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  font-family: 'Rethink Sans', sans-serif;
+  font-weight: 500;
+}
+
+.intro h2 {
+  font-size: 14rem;
   letter-spacing: 1px;
   margin-bottom: 1rem;
   font-family: 'Rethink Sans', sans-serif;
@@ -61,10 +68,11 @@ html, body {
 }
 
 .intro p {
-  font-size: 1.2rem;
-  max-width: 600px;
+  font-size: 4rem;
   line-height: 1.5;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Rethink Sans', sans-serif;
+  padding-top: 5vh;
+  text-align: left;
 }
 
 
