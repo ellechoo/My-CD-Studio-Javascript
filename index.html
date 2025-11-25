@@ -33,7 +33,7 @@
   <nav class="vertical-nav">
     <a href="#home">Home</a>
     <a href="#object1">Objects</a>
-    <a href="#essays">Essays</a>
+    <a href="#essays">Articles</a>
     <a href="#about">About</a>
   </nav>
 
@@ -41,83 +41,59 @@
   <!-- Intro Section -->
   <section class="section intro" id="home">
     
-    <div class="makeup-title">
-      <h2>M</h2>
-      <h3>AKEUP</h3>
+    <div class="title-container">
+      <div class="makeup-title">
+        <h2>M</h2>
+        <h3>AKEUP</h3>
+      </div>
+
+      <h1>for</h1>
+
+      <div class="makeup-title">
+        <h2>M</h2>
+        <h3>YSELF</h3>
+      </div>
     </div>
 
-    <h1>FOR</h1>
-
-    <div class="makeup-title">
-      <h2>M</h2>
-      <h3>YSELF</h3>
-    </div>
-
-    <p>for younger me</p>
+    <p>A simple guide to makeup for younger me.</p>
 
   </section>
 
 
   <!-- Ten Object Sections -->
-  <section class="section product" id="object1">
-    <h2>Object 01</h2>
-    <div id="model1"></div>
-    <p>Description of Object 01.</p>
+  <section class="section product">
+  <h2>Object 01</h2>
+
+  <div id="model1" class="model-container"></div>
+  <div class="hover-zone"></div>
+
+  <p class="text-body">
+    Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+  </p>
   </section>
+
 
   <section class="section product">
     <h2>Object 02</h2>
-    <div id="model2"></div>
-    <p>Description of Object 02.</p>
-  </section>
+
+    <div id="model2" class="model-container"></div>
+    <div class="hover-zone"></div>
+
+    <p class="text-body">
+      Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+    </p>
+    </section>
 
   <section class="section product">
     <h2>Object 03</h2>
-    <div id="model3"></div>
-    <p>Description of Object 03.</p>
-  </section>
 
-  <section class="section product">
-    <h2>Object 04</h2>
-    <div id="model4"></div>
-    <p>Description of Object 04.</p>
-  </section>
+    <div id="model3" class="model-container"></div>
+    <div class="hover-zone"></div>
 
-  <section class="section product">
-    <h2>Object 05</h2>
-    <div id="model5"></div>
-    <p>Description of Object 05.</p>
-  </section>
-
-  <section class="section product">
-    <h2>Object 06</h2>
-    <div id="model6"></div>
-    <p>Description of Object 06.</p>
-  </section>
-
-  <section class="section product">
-    <h2>Object 07</h2>
-    <div id="model7"></div>
-    <p>Description of Object 07.</p>
-  </section>
-
-  <section class="section product">
-    <h2>Object 08</h2>
-    <div id="model8"></div>
-    <p>Description of Object 08.</p>
-  </section>
-
-  <section class="section product">
-    <h2>Object 09</h2>
-    <div id="model9"></div>
-    <p>Description of Object 09.</p>
-  </section>
-
-  <section class="section product">
-    <h2>Object 10</h2>
-    <div id="model10"></div>
-    <p>Description of Object 10.</p>
-  </section>
+    <p class="text-body">
+      Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+    </p>
+    </section>
 
 
   <!-- Long-form text sections -->
@@ -139,10 +115,6 @@
   </section>
 
 
-  <!-- Footer -->
-  <footer class="section footer">
-    <button id="backToTop">Back to Top ↑</button>
-  </footer>
 
   <script>
     document.getElementById('backToTop').addEventListener('click', () => {
@@ -163,12 +135,17 @@
       const scene = new THREE.Scene();
       const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
       const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-      renderer.setSize(window.innerWidth, window.innerHeight);
+      
+      renderer.setSize(container.clientWidth, container.clientHeight);
+      camera.aspect = container.clientWidth / container.clientHeight;
+      camera.updateProjectionMatrix();
+
+
       container.appendChild(renderer.domElement);
 
       // Lighting
       const light = new THREE.DirectionalLight(0xffffff, 1);
-      light.position.set(2, 2, 5);
+      light.position.set(1, 1, 5);
       scene.add(light);
       scene.add(new THREE.AmbientLight(0xffffff, 0.6));
 
@@ -183,17 +160,22 @@
 
         function animate() {
           requestAnimationFrame(animate);
-          model.rotation.y += 0.005;
+
+          const speed = 0.02;
+          model.rotation.x += speed;
+          model.rotation.y += speed;
+
           renderer.render(scene, camera);
         }
         animate();
       });
 
       window.addEventListener("resize", () => {
-        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.aspect = container.clientWidth / container.clientHeight;
         camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setSize(container.clientWidth, container.clientHeight);
       });
+
     }
 
 

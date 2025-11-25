@@ -32,7 +32,7 @@
   font-family: 'Inter', sans-serif;
   font-size: 0.9rem;
   text-decoration: none;
-  color: #000;
+  color: #000000;
   letter-spacing: 1px;
   transition: opacity 0.3s ease;
 }
@@ -43,7 +43,7 @@
 
 
 html, body {
-  font-family: 'Times New Roman', serif;
+  font-family: 'inter', sans-serif;
   background-color: #fff;
   color: #000;
   scroll-behavior: smooth;
@@ -55,23 +55,24 @@ html, body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  padding: 10vh 5vh 5vh 5vh; /* top, right, bottom, left */
+  padding: 15vh 5vh 5vh 5vh; /* top, right, bottom, left */
   text-align: center;
 }
 
 
 /* Intro section */
 .intro h1 {
-  font-size: 3rem;
+  font-size: 5rem;
   letter-spacing: 1px;
   margin-bottom: 1rem;
   font-family: "RoleModel", sans-serif;
-  font-weight: 300;
+  font-weight: 200;
   font-style: normal;
+  transform: translateY(-10px);
 }
 
 .intro h2 {
-  font-size: 12rem;
+  font-size: 14rem;
   letter-spacing: 1px;
   margin-bottom: 1rem;
   font-family: "krul", sans-serif;
@@ -80,12 +81,22 @@ html, body {
 }
 
 .intro h3 {
-  font-size: 10rem;
+  font-size: 12rem;
   letter-spacing: 1px;
   margin-bottom: 1rem;
   font-family: "RoleModel", sans-serif;
-  font-weight: 100;
+  font-weight: 200;
   font-style: normal;
+}
+
+.intro p {
+  font-size: 1rem;
+  line-height: 1.5;
+  font-family: 'inter', sans-serif;
+  font-style: normal;
+  padding-top: 0vh;
+  text-align: center;
+  padding-top: 4rem;
 }
 
 
@@ -102,43 +113,37 @@ html, body {
 .makeup-title h3 {
   margin: 0; /* remove default spacing */
   padding: 0;
-  margin-left: -45px;
+  margin-left: -40px;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
 }
 
 
 
-.intro p {
-  font-size: 2.5rem;
-  line-height: 1.5;
-  font-family: 'inter', sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  padding-top: 0vh;
-  text-align: right;
-  padding-top: 0;
-  margin-top: -100px;
-  margin-right: 250px;
-}
-
-
-
-/* Tighter vertical spacing for the title stack */
-.intro h1,
-.intro h2,
-.intro h3,
-.intro p {
-  margin-bottom: 6rem; /* closer together */
-}
 
 /* Prevent huge gaps caused by oversized line boxes */
 .intro h1 { line-height: 0.9; }
-.intro h2 { line-height: 0.8; }
-.intro h3 { line-height: 0.8; }
-.intro p  { line-height: 0.8; }
+.intro h2 { line-height: 0.9; }
+.intro h3 { line-height: 0.9; }
+.intro p  { line-height: 0.9; }
 
 
 
 /* Product sections */
+
+.product:nth-of-type(odd) {
+  background-color: #ffdce5; /* pink */
+}
+
+.product:nth-of-type(even) {
+  background-color: #f7a0e1; /* green */
+}
+
 .product h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
@@ -162,12 +167,6 @@ html, body {
 
 /* 3D Model Section */
 
-#model1 {
-  width: 80%;
-  max-width: 700px;
-  height: 500px;
-  margin-bottom: 1rem;
-}
 canvas {
   width: 100% !important;
   height: 100% !important;
@@ -196,24 +195,67 @@ canvas {
   font-family: 'Inter', sans-serif;
 }
 
-/* Footer */
-.footer {
-  background-color: #000;
-  color: #fff;
-  padding: 80px 0;
+
+
+/* Hover fade interaction for 3D models + body text */
+.model-container {
+  width: 80%;
+  max-width: 600px;
+  height: 400px;     /* adjust as needed */
+  margin-bottom: 2rem;
+  transition: opacity 0.4s ease;
 }
 
-#backToTop {
-  background: none;
-  color: #fff;
-  border: 2px solid #fff;
-  padding: 10px 25px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
+.product {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
-#backToTop:hover {
-  background-color: #fff;
-  color: #000;
+.text-body {
+  position: absolute;
+  top: 50%; /* moves text up behind model */
+  transform: translateY(-50%); /* centers vertically */
+  z-index: 1; /* behind model */
+  width: 80%;
+  max-width: 1000px;
+  opacity: 0.3;
+  text-align: center;
+  font-size: 25px;
+  line-height: 1.6;
+  transition: opacity 0.5s ease;
+}
+
+.model-container {
+  position: relative;
+  z-index: 2; /* Model stays on top */
+}
+
+.hover-zone:hover ~ .model-container {
+  opacity: 0.2;
+}
+
+.hover-zone:hover ~ .text-body {
+  opacity: 1;
+}
+
+/*fake hover zone to trigger hover effect*/
+.hover-zone {
+  position: absolute;
+  width: 200px;        /* adjust hover radius */
+  height: 200px;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+
+  /* Optional: Set to 'red' temporarily for debugging */
+  /* background: rgba(255,0,0,0.2); */
+
+  pointer-events: auto;
 }
