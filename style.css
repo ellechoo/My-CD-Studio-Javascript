@@ -1,9 +1,19 @@
+@font-face {
+  font-family: "RoleModel";
+  src: url("fonts/RoleModelRegular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
 /* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 
 
 /* Vertical Navigation */
@@ -45,35 +55,87 @@ html, body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  padding: 5vh 5vh 5vh 5vh; /* top, right, bottom, left */
-  text-align: left;
+  padding: 10vh 5vh 5vh 5vh; /* top, right, bottom, left */
+  text-align: center;
 }
 
 
 /* Intro section */
 .intro h1 {
-  font-size: 6rem;
+  font-size: 3rem;
   letter-spacing: 1px;
   margin-bottom: 1rem;
-  font-family: 'Rethink Sans', sans-serif;
-  font-weight: 500;
+  font-family: "RoleModel", sans-serif;
+  font-weight: 300;
+  font-style: normal;
 }
 
 .intro h2 {
-  font-size: 14rem;
+  font-size: 12rem;
   letter-spacing: 1px;
   margin-bottom: 1rem;
-  font-family: 'Rethink Sans', sans-serif;
+  font-family: "krul", sans-serif;
   font-weight: 500;
+  font-style: normal;
 }
 
-.intro p {
-  font-size: 4rem;
-  line-height: 1.5;
-  font-family: 'Rethink Sans', sans-serif;
-  padding-top: 5vh;
-  text-align: left;
+.intro h3 {
+  font-size: 10rem;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  font-family: "RoleModel", sans-serif;
+  font-weight: 100;
+  font-style: normal;
 }
+
+
+
+.makeup-title {
+  display: flex;
+  align-items: baseline; /* makes the text align nicely */
+  gap: 0; /* remove spacing if needed */
+  margin-top: 0;
+  align-self: center;
+}
+
+.makeup-title h2,
+.makeup-title h3 {
+  margin: 0; /* remove default spacing */
+  padding: 0;
+  margin-left: -45px;
+}
+
+
+
+.intro p {
+  font-size: 2.5rem;
+  line-height: 1.5;
+  font-family: 'inter', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  padding-top: 0vh;
+  text-align: right;
+  padding-top: 0;
+  margin-top: -100px;
+  margin-right: 250px;
+}
+
+
+
+/* Tighter vertical spacing for the title stack */
+.intro h1,
+.intro h2,
+.intro h3,
+.intro p {
+  margin-bottom: 6rem; /* closer together */
+}
+
+/* Prevent huge gaps caused by oversized line boxes */
+.intro h1 { line-height: 0.9; }
+.intro h2 { line-height: 0.8; }
+.intro h3 { line-height: 0.8; }
+.intro p  { line-height: 0.8; }
+
 
 
 /* Product sections */
