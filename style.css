@@ -42,10 +42,15 @@
 }
 
 
-html, body {
-  font-family: 'inter', sans-serif;
-  background-color: #fff;
-  color: #000;
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #ffcae5; /* fallback color */
+  background-image: url('images/background.jpg'); /* path to your image */
+  background-size: cover;    /* make it cover the whole screen */
+  background-position: center; /* center the image */
+  background-repeat: no-repeat; /* don’t tile it */
+  background-attachment: fixed; /* keeps it fixed while scrolling */
+  color: #ffffff;
   scroll-behavior: smooth;
 }
 
@@ -136,12 +141,10 @@ html, body {
 
 /* Product sections */
 
-.product:nth-of-type(odd) {
-  background-color: #ffdce5; /* pink */
-}
+
 
 .product:nth-of-type(even) {
-  background-color: #f7a0e1; /* green */
+  background-color: #e1b1c7; /* green */
 }
 
 .product h2 {
@@ -221,8 +224,8 @@ canvas {
   top: 50%; /* moves text up behind model */
   transform: translateY(-50%); /* centers vertically */
   z-index: 1; /* behind model */
-  width: 80%;
-  max-width: 1000px;
+  width: 100%;
+  max-width: none;
   opacity: 0.3;
   text-align: center;
   font-size: 25px;
